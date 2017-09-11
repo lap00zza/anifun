@@ -3,17 +3,20 @@
  * Copyright (c) 2017 Jewel Mahanta
  * Check LICENSE for more details.
  */
+// Load the environment variables from .env file.
+require("dotenv").config();
 
+// Other imports
 const Koa = require("koa");
 const Router = require("koa-router");
 const Static = require("koa-static");
 const Views = require("koa-views");
 const path = require("path");
 
+// Initialize
 const app = new Koa();
 const router = new Router();
 
-// Initialize the middlewares for view engine and static files
 app.use(Views(path.join(__dirname, "views"), {
     extension: "ejs",
 }));
@@ -30,8 +33,8 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 
 // Run paste
-const PORT = 4000;
-const HOST = "127.0.0.1";
+const PORT = process.env.PORT;
+const HOST = process.env.HOST;
 app.listen(PORT, HOST, () => {
     console.info(`Running anifun on port ${HOST}:${PORT}`);
 });

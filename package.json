@@ -30,6 +30,7 @@
     "run-sequence": "^2.1.0"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
     "ejs": "^2.5.7",
     "koa": "^2.3.0",
     "koa-router": "^7.2.1",
