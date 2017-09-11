@@ -6,13 +6,13 @@ const runSequence = require("run-sequence");
 const sass = require("gulp-sass");
 
 gulp.task("clean_build", function () {
-    return del(["assets/css/**/*"]);
+    return del(["anifun/assets/build/**/*"]);
 });
 
 gulp.task("sass", function () {
-    return gulp.src("sass/**/*.sass")
+    return gulp.src("anifun/assets/sass/**/*.sass")
         .pipe(sass())
-        .pipe(gulp.dest("assets/css"));
+        .pipe(gulp.dest("anifun/assets/build/css"));
 });
 
 /* --- DEFAULT TASK --- */
